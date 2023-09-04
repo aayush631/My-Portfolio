@@ -24,7 +24,7 @@ function closemenu() {
 
 
 // ------google sheet------------------
-const scriptURL = 'https://script.google.com/macros/s/AKfycbzVX5Q1Kzays_C5QnvzK1rW8Ot4BradaFN2RzcUmmZoxIFhvyClH-sMcsuKBcso_AI/exec'
+const scriptURL = 'https://script.google.com/macros/s/AKfycbyjiVybQcapcm-tLeqsefbdWCLYBWw6LVcJQ8Fdf-8h1OTaNDoGvC3ihUIgH6oRDWon/exec'
 const form = document.forms['submit-to-google-sheet']
 const msg = document.getElementById("msg")
 

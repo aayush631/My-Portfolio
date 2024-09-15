@@ -1,0 +1,255 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background: #080808;
+    color: #fff;
+}
+
+/* Container Styles */
+.container {
+    padding: 10px 10%;
+    height: 100%;
+}
+
+/* Header Styles */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: start; /* Align only the logo to the start */
+    flex-wrap: wrap;
+}
+.logo {
+    width: 140px;
+}
+
+/* My Work Section */
+#mywork_graphics {
+    padding: 60px 0;
+    flex-grow: 1;
+}
+
+.sub-title {
+    text-align: center;
+    font-size: 48px;
+    color: #fff;
+    margin-bottom: 50px;
+}
+
+/* Services List Styles */
+.services-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    gap: 20px; /* Space between items */
+    margin-bottom: 30px;
+}
+
+.image-container {
+    background-color: #262626;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.image-container:hover {
+    background-color:#ff0000; /* Red shade on hover */
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+.image-container h1 {
+    font-size: 24px;
+    margin-top: 10px;
+    color: #fff;
+}
+
+/* Hidden Images for Modal */
+.hidden-images {
+    display: none; /* Hide images initially */
+}
+
+/* Back Button */
+.back-button {
+    background-color: #ff0000;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    position: relative;
+    top: 10px;
+}
+
+.back-button:hover {
+    background-color: #ff0000;
+}
+
+/* Footer Styles */
+.copyright {
+    background-color: #262626;
+    text-align: center;
+    padding: 20px;
+    color: #fff;
+    margin-top: auto; /* Sticks footer to the bottom */
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Black with transparency */
+    overflow: hidden; /* Hide scrollbars */
+}
+
+/* Modal Content */
+.modal-content {
+    position: absolute; /* Changed to absolute for proper positioning */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the content */
+    width: 90%; /* Adjusted width for responsiveness */
+    max-width: 900px;
+    padding: 10px; /* Added padding */
+    /* background-color: #fff; Background color for content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional shadow */
+    border-radius: 10px; /* Rounded corners */
+    cursor: auto; /* Ensure content does not close the modal */
+}
+
+/* Slideshow Container */
+.modal-slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 80vh; /* Adjust height to fit viewport */
+}
+
+/* Slideshow Styles */
+.modal-slideshow {
+    display: flex;
+    align-items: center; /* Center images vertically */
+    justify-content: center; /* Center images horizontally */
+    height: 100%;
+    overflow: hidden; /* Hide overflow */
+}
+
+/* Ensure images fit properly on large screens */
+.modal-slideshow img {
+    max-width: 100%; /* Allow image to grow as much as needed */
+    max-height: 100%; /* Allow image to grow as much as needed */
+    object-fit: contain; /* Ensures the image fits within the container */
+}
+
+/* Arrows */
+.arrow {
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 2;
+    transform: translateY(-50%);
+    padding: 10px;
+    border-radius: 50%;
+    display: none; /* Hide arrows by default */
+}
+
+.arrow.left {
+    left: 10px;
+}
+
+.arrow.right {
+    right: 10px;
+}
+
+/* Hide close button on all screens */
+.close {
+    display: none; /* Hide the close button by default */
+}
+
+/* Media Query for Smaller Screens */
+@media only screen and (max-width: 768px) {
+    nav {
+        justify-content: center; /* Center the logo */
+    }
+
+    .logo {
+        width: 100px; /* Adjust logo size */
+    }
+
+    #mywork_graphics {
+        padding: 20px 0; /* Adjust padding for smaller screens */
+    }
+
+    .sub-title {
+        font-size: 24px; /* Adjust font size for smaller screens */
+        margin-bottom: 20px; /* Adjust margin for smaller screens */
+    }
+
+    .services-list {
+        grid-template-columns: 1fr; /* 1 container per row on smaller screens */
+    }
+
+    .image-container {
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .image-container h1 {
+        font-size: 16px; /* Adjust font size for smaller screens */
+        margin-top: 10px; /* Adjust margin for smaller screens */
+    }
+
+    .back-button {
+        display: block;
+        margin: 20px auto; /* Center the back button */
+    }
+
+    .modal-content {
+        width: 95%; /* Adjust modal width */
+    }
+
+    .arrow {
+        font-size: 24px; /* Adjust font size for arrows */
+    }
+
+    /* Ensure close button is hidden on smaller screens */
+    .close {
+        display: block; /* Show the close button on small screens */
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 30px;
+        cursor: pointer;
+        color: #fff; /* White color for visibility on dark background */
+        z-index: 3;
+    }
+}
+
+/* Media Query for Larger Screens */
+@media only screen and (min-width: 1200px) {
+    .services-list {
+        grid-template-columns: repeat(3, 1fr); /* 3 containers per row */
+    }
+}

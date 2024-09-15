@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern UI Page</title>
+    <link rel="stylesheet" href="./css/graphics.css">
+</head>
+<body>
+    <header>
+        <div id="header">
+            <div class="container">
+                <nav>
+                    <a href="#header"><img src="eg.png" class="logo" alt="Logo"></a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <div id="mywork_graphics">
+        <div class="container">
+            <button onclick="goBack()" class="back-button">Back</button>
+            <h1 class="sub-title">My Designing Work</h1>
+            <div class="services-list">
+                <!-- Example of one image container -->
+                <div class="image-container" onclick="openModal(this)">
+                    <img src="./images/graphics work/Business Card-Front.jpg" alt="Business Card">
+                    <h1>Business Card</h1>
+                    <div class="hidden-images">
+                        <img src="./images/graphics work/Business Card-Front.jpg" alt="Business Card Front">
+                        <img src="./images/graphics work/Business Card-Back.jpg" alt="Business Card Back">
+                    </div>
+                </div>
+                <div class="image-container" onclick="openModal(this)">
+                    <img src="./images/calander 2080bs/A. thumbnail.jpg" alt="Calendar">
+                    <h1>Nepali Calendar 2080 BS</h1>
+                    <div class="hidden-images">
+                        <img src="./images/calander 2080bs/1. Baishakh.jpg" alt="Calendar Image 1">
+                        <img src="./images/calander 2080bs/2. Jestha.jpg" alt="Calendar Image 2">
+                        <img src="./images/calander 2080bs/3.Aashadha.jpg" alt="Calendar Image 3">
+                        <img src="./images/calander 2080bs/4.Shrawan.jpg" alt="Calendar Image 4">
+                        <img src="./images/calander 2080bs/5.Bhadra.jpg" alt="Calendar Image 5">
+                        <img src="./images/calander 2080bs/6. Ashwin.jpg" alt="Calendar Image 6">
+                        <img src="./images/calander 2080bs/7. Kartik.jpg" alt="Calendar Image 7">
+                        <img src="./images/calander 2080bs/8. Mangsir.jpg" alt="Calendar Image 8">
+                        <img src="./images/calander 2080bs/9. Poush.jpg" alt="Calendar Image 9">
+                        <img src="./images/calander 2080bs/10. Magh.jpg" alt="Calendar Image 10">
+                        <img src="./images/calander 2080bs/11. Falgun.jpg" alt="Calendar Image 11">
+                        <img src="./images/calander 2080bs/12. Chaitra.jpg" alt="Calendar Image 12">
+                    </div>
+                </div>
+                <div class="image-container" onclick="openModal(this)">
+                    <img src="./images/logos/A. thumbnail.jpg" alt="logos">
+                    <h1>Logo Designs</h1>
+                    <div class="hidden-images">
+                        <img src="./images/logos/LOGO.jpg" alt="Work Ease">
+                        <img src="./images/logos/logo1.JPG" alt="Insurance company">
+                        <img src="./images/logos/LOGO2.png" alt="youtube channel">
+                    </div>
+                </div>
+                <div class="image-container" onclick="openModal(this)">
+                    <img src="./images/banners/thumbnail.jpg" alt="logos">
+                    <h1>Banners</h1>
+                    <div class="hidden-images">
+                        <img src="./images/banners/f. cover photo.JPG" alt="youtube">
+                        <img src="./images/banners/Background FAcebook.JPG" alt="workease banner">
+                        <img src="./images/banners/design-1.jpg" alt="">
+                    </div>
+                </div>
+                <div class="image-container" onclick="openModal(this)">
+                    <img src="./images/others/unnamed.jpg" alt="logos">
+                    <h1>-Many other Promotional posters, <br>
+                        -Social Media Posts, <br>
+                        -etc.</h1>
+                    <div class="hidden-images">
+                        <img src="./images/others/1.jfif" alt="">
+                        <img src="./images/others/2.jpeg" alt="">
+                        <img src="./images/others/3.jpeg" alt="">
+                        <img src="./images/others/4.jpeg" alt="">
+                        <img src="./images/others/5.jpeg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="copyright">
+        <p>Copyright © Aayush | All Rights Reserved</p>
+    </div>
+    
+    <!-- Modal for Enlarged Images -->
+    <div id="imageModal" class="modal" onclick="closeModal(event)">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal(event)">&times;</span>
+            <div class="modal-slideshow-container">
+                <button class="arrow left" onclick="moveSlide(-1)">&#10094;</button>
+                <div class="modal-slideshow" id="modalSlides"></div>
+                <button class="arrow right" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+    <script>
+ // Function to go back to the previous page
+function goBack() {
+    window.history.back();
+}
+
+// Open the modal and display the images from the clicked container
+function openModal(container) {
+    var modal = document.getElementById("imageModal");
+    var modalSlides = document.getElementById("modalSlides");
+    
+    // Clear previous images
+    modalSlides.innerHTML = '';
+
+    // Get all images from the hidden-images div
+    var images = container.querySelectorAll('.hidden-images img');
+    images.forEach(img => {
+        var clone = img.cloneNode();
+        clone.style.width = 'auto';
+        clone.style.height = '100%';
+        modalSlides.appendChild(clone);
+    });
+
+    // Show arrows if there are multiple images
+    var arrows = document.querySelectorAll('.arrow');
+    if (images.length > 1) {
+        arrows.forEach(arrow => arrow.style.display = 'block');
+    } else {
+        arrows.forEach(arrow => arrow.style.display = 'none');
+    }
+
+    modal.style.display = "block";
+
+    // Initialize slide index
+    window.currentSlideIndex = 0;
+    showSlide(window.currentSlideIndex);
+}
+
+// Close the modal
+function closeModal(event) {
+    var modal = document.getElementById("imageModal");
+    if (event.target === modal || event.target.classList.contains('close')) {
+        modal.style.display = "none";
+    }
+}
+
+// Show slide based on index
+function showSlide(index) {
+    var slides = document.querySelectorAll('#modalSlides img');
+    if (slides.length === 0) return;
+
+    if (index >= slides.length) {
+        window.currentSlideIndex = 0;
+    } else if (index < 0) {
+        window.currentSlideIndex = slides.length - 1;
+    } else {
+        window.currentSlideIndex = index;
+    }
+
+    slides.forEach((slide, i) => {
+        slide.style.display = (i === window.currentSlideIndex) ? 'block' : 'none';
+    });
+
+    // Update arrow visibility
+    updateArrowVisibility();
+}
+
+// Update arrow visibility based on current slide index
+function updateArrowVisibility() {
+    var slides = document.querySelectorAll('#modalSlides img');
+    document.querySelector('.arrow.left').style.display = (window.currentSlideIndex === 0) ? 'none' : 'block';
+    document.querySelector('.arrow.right').style.display = (window.currentSlideIndex === slides.length - 1) ? 'none' : 'block';
+}
+
+// Move to next or previous slide
+function moveSlide(step) {
+    showSlide(window.currentSlideIndex + step);
+}
+
+// Add event listener for modal close functionality
+document.getElementById("imageModal").addEventListener("click", closeModal);
+
+// Ensure clicks within modal content don't close the modal
+document.querySelector('.modal-content').addEventListener("click", function(event) {
+    event.stopPropagation();
+});
+
+// Add event listener for close button click
+document.querySelector('.close').addEventListener("click", function() {
+    document.getElementById("imageModal").style.display = "none";
+});
+
+
+    </script>
+</body>
+</html>

@@ -22,7 +22,6 @@ function closemenu() {
 }
 
 
-
 // Send Message to google sheet-------------------
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -53,3 +52,44 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+// see more.......................
+document.getElementById('seeMoreBtn').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent default link behavior
+    var hiddenItems = document.querySelector('.hidden-items');
+    
+    if (hiddenItems.classList.contains('show')) {
+        hiddenItems.classList.remove('show');  // Hide the hidden items
+        this.innerText = "See More";  // Change button text back to 'See More'
+    } else {
+        hiddenItems.classList.add('show');  // Show the hidden items
+        this.innerText = "See Less";  // Change button text to 'See Less'
+    }
+});
+
+document.getElementById('seeMorebtn').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent default link behavior
+    var hiddenItems = document.querySelector('.hidden-item');
+    
+    if (hiddenItems.classList.contains('show')) {
+        hiddenItems.classList.remove('show');  // Hide the hidden items
+        this.innerText = "See More";  // Change button text back to 'See More'
+    } else {
+        hiddenItems.classList.add('show');  // Show the hidden items
+        this.innerText = "See Less";  // Change button text to 'See Less'
+    }
+});
+
+
+
+// not authorized to view the phone number
+document.getElementById('phone-number-link').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevents the default link behavior
+    alert('You are not authorized to view the phone number');
+});
+
+
+// back................
+// Back button functionality
+document.getElementById('backBtn').addEventListener('click', function() {
+    window.history.back();
+});

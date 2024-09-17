@@ -203,6 +203,7 @@ nav ul li a:hover::after {
 
 .services-list div {
     background: #262626;
+    margin-top: 20px;
     padding: 40px;
     font-size: 13px;
     font-weight: 300;
@@ -447,13 +448,14 @@ nav .fa-solid {
 @media only screen and (max-width: 600px) {     
     .imae {
         display: none;
+
     }
     #about {
         padding-top: 20px; /* Reduced padding to fit content */
     }
     .header-text {
         width: 100%;
-        margin-top: 90px; /* Reduced top margin to decrease the gap */
+        margin-top: 60px; /* Reduced top margin to decrease the gap */
         font-size: 20px;
         text-align: center;
     }
@@ -577,5 +579,20 @@ nav .fa-solid {
 
     .services-list div a {
         font-size: 10px; /* Adjust link font size */
+    }
+}
+/* image */
+@media only screen and (min-width: 1200px) {
+    .imae {
+        width: 35%; /* Adjust width for big screens */
+        margin-bottom: 500px;
+
+    }
+}
+
+/* Media query for screens larger than 1600px (very large screens) */
+@media only screen and (min-width: 1600px) {
+    .imae {
+        width: 35%; /* Further adjustment for extra-large screens */
     }
 }

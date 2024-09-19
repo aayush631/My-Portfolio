@@ -102,11 +102,12 @@ nav {
 
 /* Footer Styles */
 .copyright {
-    background-color: #262626;
+    width: 100%;
     text-align: center;
-    padding: 20px;
-    color: #fff;
-    margin-top: auto; /* Sticks footer to the bottom */
+    padding: 25px 0;
+    background: #262626;
+    font-weight: 300;
+    margin-top: 20px;
 }
 
 /* Modal Styles */

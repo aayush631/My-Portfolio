@@ -47,7 +47,7 @@ nav {
 .services-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-    gap: 20px; /* Space between items */
+    grid-gap: 40px;/* Space between items */
     margin-bottom: 30px;
 }
 
@@ -58,11 +58,14 @@ nav {
     text-align: center;
     cursor: pointer;
     position: relative;
-    transition: background-color 0.3s ease; /* Smooth background color transition */
+    transition: background 0.5s, transform 0.5s;
 }
+    
 
-.image-container:hover {
-    background-color:#ff0000; /* Red shade on hover */
+.image-container:hover {   
+        background: #ff0000;
+        transform: translateY(-20px);
+    
 }
 
 .image-container img {
